@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu6am8uphvkkh"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_yxwk3"]
+[ext_resource type="PackedScene" uid="uid://bfibalnhnsvdk" path="res://scenes/options_menu/options_menu.tscn" id="2_iyddj"]
+[ext_resource type="AudioStream" uid="uid://11xsscxaxgm1" path="res://assets/music/game-music-loop-8-145362.mp3" id="3_o4ptf"]
+
+[sub_resource type="Gradient" id="Gradient_rq8n1"]
+colors = PackedColorArray(0.490196, 0, 0, 1, 1, 0.815686, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ufyc2"]
+gradient = SubResource("Gradient_rq8n1")
+fill_from = Vector2(0.152174, 0.513043)
+fill_to = Vector2(0.747826, 0.130435)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yxwk3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ufyc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SpacerControl" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Wordle"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="SpacerControl" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(20, 100)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+icon_alignment = 1
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("2_iyddj")]
+visible = false
+layout_mode = 1
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o4ptf")
+volume_db = -11.093
+autoplay = true
+bus = &"Music"
