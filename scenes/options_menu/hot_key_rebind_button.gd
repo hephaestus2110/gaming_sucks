@@ -4,7 +4,7 @@ extends Control
 @onready var label = $HBoxContainer/Label as Label
 @onready var button = $HBoxContainer/Button as Button
 
-@export var action_name : String = 'move_left'
+@export var action_name : String = 'move_up'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,16 +16,8 @@ func set_action_name():
 	label.text = 'Unassigned'
 	
 	match action_name:
-		"move_left":
-			label.text = "Move Left"
-		"move_right":
-			label.text = "Move Right"
-		"delete_forwards":
-			label.text = "Delete Forwards"
-		"delete_backwards":
-			label.text = "Delete Backwards"
-		"guess":
-			label.text = "Guess Word"
+		"move_up":
+			label.text = "Move Up"
 
 func set_text_for_key():
 	var action_events = InputMap.action_get_events(action_name)

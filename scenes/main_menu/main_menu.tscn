@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu6am8uphvkkh"]
+[gd_scene load_steps=5 format=3 uid="uid://bu6am8uphvkkh"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_yxwk3"]
 [ext_resource type="PackedScene" uid="uid://bfibalnhnsvdk" path="res://scenes/options_menu/options_menu.tscn" id="2_iyddj"]
-[ext_resource type="AudioStream" uid="uid://11xsscxaxgm1" path="res://assets/music/game-music-loop-8-145362.mp3" id="3_o4ptf"]
 
 [sub_resource type="Gradient" id="Gradient_rq8n1"]
 colors = PackedColorArray(0.490196, 0, 0, 1, 1, 0.815686, 1, 1)
@@ -87,9 +86,3 @@ text = "Exit
 [node name="OptionsMenu" parent="." instance=ExtResource("2_iyddj")]
 visible = false
 layout_mode = 1
-
-[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_o4ptf")
-volume_db = -11.093
-autoplay = true
-bus = &"Music"
