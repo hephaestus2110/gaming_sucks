@@ -13,6 +13,8 @@ func _ready():
 
 func on_back_pressed():
 	exit_options_menu.emit()
+	SettingsSignalBus.emit_set_settings_dictionary(SettingsDataContainer.create_storage_dict())
+	set_process(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
